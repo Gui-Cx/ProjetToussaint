@@ -4,7 +4,12 @@ Window::Window(const int width, const int height, char* title) : width(width), h
 {
 }
 
+static void glfwError(int id, const char* description) {
+    printf("%s\n", description);
+}
+
 GLFWwindow* Window::createWindow() {
+    glfwSetErrorCallback(&glfwError);
     // Init guard
     if (!glfwInit()) {
         printf("Failed to initialize glfw\n");
@@ -14,7 +19,7 @@ GLFWwindow* Window::createWindow() {
     // Speficy versions
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    // glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
     
     instance = glfwCreateWindow(width, height, title, nullptr, nullptr);
     if (instance == nullptr) {
