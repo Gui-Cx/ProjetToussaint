@@ -28,6 +28,9 @@ bool Application::init() {
     get_instance()->window.createWindow();
     init_callbacks();
     app_running = true;
+    Shader exampleShader;
+    exampleShader.compile();
+
     return true;
 }
 
@@ -57,6 +60,7 @@ namespace Input
 
     void update_keys(std::unique_ptr<Application>& app) {
         if (is_key_down(GLFW_KEY_ESCAPE)) app.get()->app_running = false;
+        if (is_key_down(GLFW_KEY_1)) triangleSetup();
     }
 
     void update_cursorpos(std::unique_ptr<Application>& app) {

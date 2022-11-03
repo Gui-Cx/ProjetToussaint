@@ -2,6 +2,8 @@
 #ifndef WINDOW_H
 #define WINDOW_H
 #include "core.h"
+#include "core/shader.h"
+#include "core/vertex.h"
 
 #define WINDOW_WIDTH 1280
 #define WINDOW_HEIGHT 720
