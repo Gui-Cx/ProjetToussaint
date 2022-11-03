@@ -19,3 +19,6 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp $(HEAD_DIR)/%.h
 
 .PHONY : all
 all: main
+
+clean :
+	rm main
