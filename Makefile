@@ -6,7 +6,7 @@ TEST_DIR := ./test
 SRC_FILES := $(filter-out $(SRC_DIR)/main.cpp, $(shell find $(SRC_DIR) -name "*.cpp"))
 OBJ_FILES := $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRC_FILES))
 GLAD_FILES := ./lib/glad/src/glad.c
-LFLAGS := -lglfw3 -ldl -lGL -lGLU -lGLEW -lX11 -lpthread
+LFLAGS := -lglfw -ldl -lGL -lGLU -lGLEW -lX11 -lpthread
 #SLFLAGS = $(LIB_DIR)/stb_image.a
 INCFLAGS = -I./include -I./include/core -I./src -I./lib/glad/include/
 
@@ -19,3 +19,6 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp $(HEAD_DIR)/%.h
 
 .PHONY : all
 all: main
+
+clean:
+	rm main
